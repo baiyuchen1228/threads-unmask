@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Threads Unmask",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Automatically unmasks sensitive content on Threads, allowing you to view it directly.",
   "content_scripts": [
     {

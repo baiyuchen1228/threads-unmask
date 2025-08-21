@@ -1,22 +1,13 @@
 (() => {
-    // 找到含 .x47corl 的區塊，往上抓貼文容器並加 data-unmask
     const markContainers = (root = document) => {
-      const flags = root.querySelectorAll('.x47corl');
-      for (const f of flags) {
-        let n = f, steps = 0;
-        // 向上找夠大的 DIV/ARTICLE 作為容器
-        while (n && steps < 8) {
-          if (!(n instanceof Element)) break;
-          const r = n.getBoundingClientRect?.() || { width: 0, height: 0 };
-          if ((n.tagName === 'ARTICLE' || n.tagName === 'DIV') && r.width >= 280 && r.height >= 120) {
-            n.setAttribute('data-unmask', '1');
-            break;
-          }
-          n = n.parentElement; steps++;
+      root.querySelectorAll('.xg01cxk').forEach(el => {
+        const firstChild = el.firstElementChild;
+        if (firstChild && firstChild.tagName.toLowerCase() === 'span') {
+          el.className = el.className.replace('xg01cxk',''); // 移除 class
         }
-      }
+      });
     };
-  
+
     const kickoff = () => markContainers(document);
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', kickoff, { once: true });
@@ -27,8 +18,6 @@
     new MutationObserver(muts => {
       for (const m of muts) {
         if (m.type === 'childList' && m.addedNodes.length) markContainers(document);
-        if (m.type === 'attributes' && m.target.matches?.('.x47corl')) markContainers(document);
       }
-    }).observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] });
+    }).observe(document.documentElement, { childList: true, subtree: true });
   })();
-  
