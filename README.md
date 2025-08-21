@@ -1,6 +1,14 @@
 # Threads Unspoil (Scoped CSS)
 
-自動在含有暴雷遮罩的 Threads 文章容器上套用範圍化 CSS，解除 `opacity: 0` 與 `pointer-events: none`，不需模擬點擊。
+透過改變 CSS 去自動檢視 threads 上的防暴雷內容。
+
+
+|  before   | after  |
+|  ----  | ----  |
+| <img width="268" height="106" alt="image" src="https://github.com/user-attachments/assets/d416897d-5a9b-489a-9e9a-96b7c88f41af" />  | <img width="268" height="106" alt="image" src="https://github.com/user-attachments/assets/eb292e72-a6d8-4fe5-9d73-ca18f7eba229" /> |
+
+
+
 
 ## 安裝（Edge / Chrome）
 1. 下載或 clone 本專案。
@@ -22,6 +30,3 @@
 ## 注意事項
 - 僅影響本機顯示；請遵守 Threads / Meta 使用條款與社群規範。
 - 若 Threads 更改類名（如 `.xg01cxk` / `.x47corl`），需更新選擇器。
-
-## 授權
-MIT
