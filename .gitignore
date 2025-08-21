@@ -1,0 +1,9 @@
+# 打包產物 & 私鑰
+*.crx
+*.pem
+*.zip
+
+# 編輯器暫存
+.DS_Store
+Thumbs.db
+*.log

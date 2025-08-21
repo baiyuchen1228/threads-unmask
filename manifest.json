@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Threads Unspoil (Scoped CSS)",
+  "version": "1.0.0",
+  "description": "Reveal spoilers with scoped CSS around containers that include the overlay.",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.threads.net/*",
+        "https://www.threads.com/*"
+      ],
+      "css": ["unspoil.css"],
+      "js": ["scope.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
