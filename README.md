@@ -1,32 +1,42 @@
 # Threads Unspoil (Scoped CSS)
 
-透過改變 CSS 去自動檢視 threads 上的防暴雷內容。
+**厭倦了每次都要手動點擊，才能查看 Threads 上的內容嗎？**
 
+`Threads Unspoil` 能自動揭開所有被隱藏的貼文，讓您無需任何點擊，享受更順暢的瀏覽體驗。
 
-|  before   | after  |
-|  ----  | ----  |
-| <img width="268" height="106" alt="image" src="https://github.com/user-attachments/assets/d416897d-5a9b-489a-9e9a-96b7c88f41af" />  | <img width="268" height="106" alt="image" src="https://github.com/user-attachments/assets/eb292e72-a6d8-4fe5-9d73-ca18f7eba229" /> |
+| Before | After |
+| --- | --- |
+| <img width="268" height="106" alt="image" src="https://github.com/user-attachments/assets/d416897d-5a9b-489a-9e9a-96b7c88f41af" /> | <img width="268" height="106" alt="image" src="https://github.com/user-attachments/assets/eb292e72-a6d8-4fe5-9d73-ca18f7eba229" /> |
 
+## ✨ 特色 (Features)
 
+*   **自動顯示**：自動揭開被標示為「暴雷」的貼文。
+*   **無需點擊**：節省您的時間與操作。
+*   **輕量高效**：僅使用 CSS 和幾行 JS，對瀏覽器性能影響極小。
 
+## 🚀 安裝 (Installation)
 
-## 安裝（Edge / Chrome）
-1. 下載或 clone 本專案。
-2. 打開 `edge://extensions` 或 `chrome://extensions`。
-3. 開啟「開發人員模式」→「載入未封裝項目」→ 指向此專案資料夾。
-4. 造訪 `https://www.threads.net/` 或 `https://www.threads.com/` 測試。
+#### 簡易安裝 (推薦給所有使用者)
+1.  前往本專案的 [**Releases**](https://github.com/baiyuchen1228/threads-unspoil/releases) 頁面下載最新版的 `threads-unspoil.zip` 檔案。
+2.  解壓縮下載的檔案。
+3.  打開瀏覽器的擴充功能頁面 (`edge://extensions` 或 `chrome://extensions`)。
+4.  開啟右上角的「開發人員模式」。
+5.  點擊「載入未封裝項目」，然後選擇剛剛解壓縮出來的資料夾即可。
 
-## 原理
-- `scope.js`：尋找含有遮罩層的容器，標記 `data-unspoil`。
-- `unspoil.css`：僅對標記容器內的元素：
-  - `.xg01cxk { opacity: 1 !important; }`
-  - `.x47corl { pointer-events: auto !important; opacity: 1 !important; }`
+#### 開發者安裝
+1.  `git clone https://github.com/baiyuchen1228/threads-unspoil.git`
+2.  打開瀏覽器擴充功能頁面，開啟「開發人員模式」。
+3.  點擊「載入未封裝項目」，指向 clone 下來的專案資料夾。
 
-## 檔案說明
-- `manifest.json`：Manifest v3，內容指向上述兩個檔案並限制在 Threads 網域。
-- `unspoil.css`：範圍化 CSS。
-- `scope.js`：偵測遮罩並在容器掛 `data-unspoil`。
+## ⚙️ 原理 (How it works)
 
-## 注意事項
-- 僅影響本機顯示；請遵守 Threads / Meta 使用條款與社群規範。
-- 若 Threads 更改類名（如 `.xg01cxk` / `.x47corl`），需更新選擇器。
+本擴充功能透過以下方式運作：
+*   `scope.js`：使用 `MutationObserver` 監聽頁面變化，當找到含有暴雷遮罩的容器時，為其掛上 `data-unspoil` 標籤。
+*   `unspoil.css`：利用 CSS 屬性選擇器 `[data-unspoil]`，僅針對被標記的容器，強制解除內容的透明度與滑鼠事件限制。
+
+## ⚠️ 注意事項
+*   本擴充功能僅影響您本機的瀏覽器顯示，不會修改任何網路內容。
+*   若未來 Threads 網站更新其 CSS 類名，可能會導致此擴充功能失效，屆時需要更新版本。
+
+## 🤝 貢獻 (Contributing)
+歡迎回報問題或提出建議！請直接到 [GitHub Issues](https://github.com/baiyuchen1228/threads-unspoil/issues) 頁面提交。
