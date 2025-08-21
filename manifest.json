@@ -1,16 +1,16 @@
 {
   "manifest_version": 3,
-  "name": "Threads Unspoil (Scoped CSS)",
+  "name": "Threads Unmask",
   "version": "1.0.0",
-  "description": "Reveal spoilers with scoped CSS around containers that include the overlay.",
+  "description": "Automatically unmasks sensitive content on Threads, allowing you to view it directly.",
   "content_scripts": [
     {
       "matches": [
         "https://www.threads.net/*",
         "https://www.threads.com/*"
       ],
-      "css": ["unspoil.css"],
-      "js": ["scope.js"],
+      "css": ["unmask.css"],
+      "js": ["core.js"],
       "run_at": "document_start"
     }
   ]

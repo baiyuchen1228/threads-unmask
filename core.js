@@ -1,5 +1,5 @@
 (() => {
-    // 找到含 .x47corl 的區塊，往上抓貼文容器並加 data-unspoil
+    // 找到含 .x47corl 的區塊，往上抓貼文容器並加 data-unmask
     const markContainers = (root = document) => {
       const flags = root.querySelectorAll('.x47corl');
       for (const f of flags) {
@@ -9,7 +9,7 @@
           if (!(n instanceof Element)) break;
           const r = n.getBoundingClientRect?.() || { width: 0, height: 0 };
           if ((n.tagName === 'ARTICLE' || n.tagName === 'DIV') && r.width >= 280 && r.height >= 120) {
-            n.setAttribute('data-unspoil', '1');
+            n.setAttribute('data-unmask', '1');
             break;
           }
           n = n.parentElement; steps++;
